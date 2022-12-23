@@ -1,0 +1,56 @@
+﻿<Window x:Class="LAB3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LAB3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="MenuItem" x:Key="DocButton">
+            <Setter Property="Background" Value="DarkBlue" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+        <Style BasedOn="{StaticResource DocButton}" TargetType="MenuItem" x:Key="ActiveDocButton">
+            <Setter Property="Background" Value="DarkRed" />
+        </Style>
+        <Style BasedOn="{StaticResource DocButton}" TargetType="TextBlock" x:Key="ActiveDocButton2">
+            <Setter Property="Background" Value="AliceBlue" />
+        </Style>
+    </Window.Resources>
+    <Canvas>
+
+        <Menu Background="White"  BorderBrush="Navy" BorderThickness="1" MouseEnter="Menu_MouseEnter" MouseLeave="Menu_MouseLeave">
+            <MenuItem Header="_Меню">
+                <MenuItem Style="{StaticResource ActiveDocButton}" Header="изменять цвет фона окна" Click="MenuItem_Click" MouseEnter="MenuItem_MouseEnter"  MouseLeave="MenuItem_MouseLeave"/>
+                <Separator />
+                <MenuItem   Style="{StaticResource ActiveDocButton}" Header=" получить информацию о разработчике" Click="MenuItem_Click_1" MouseEnter="MenuItem_MouseEnter_1"  MouseLeave="MenuItem_MouseLeave_1"/>
+                <MenuItem   Style="{StaticResource ActiveDocButton}" Header=" закрыть окно"  Click="MenuItem_Click_2" MouseEnter="MenuItem_MouseEnter_2" MouseLeave="MenuItem_MouseLeave_2"/>
+
+            </MenuItem>
+          
+        </Menu>
+        <ToolBar Canvas.Top="60">
+            <Button >
+              
+                <Image Width="50" Source="/NewFolder1/png-clipart-accio-folder-icons-for-osx-generic-blue-folder-illustration.png" />
+
+            </Button>
+            <Separator/>
+            <Button>
+                <Image  Width="50" Source="/NewFolder1/i.png" />
+
+            </Button>
+        </ToolBar>
+        <StatusBar DockPanel.Dock="Bottom"  VerticalAlignment="Bottom" Height="40" Canvas.Top="379" Width="792">
+            <TextBlock Text="Сохранение документа ..." Name="textBlock1"    />
+            <StatusBarItem HorizontalAlignment="Right"  >
+                <TextBlock Text="" />
+            </StatusBarItem>
+        </StatusBar>
+
+    </Canvas>
+</Window>
